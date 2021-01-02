@@ -190,37 +190,13 @@
       </div>
     </section>
 
-    <script type="text/JavaScript" src="script.js"></script>
+    <!-- toast messaage -->
+    <div class="toast"></div>
 
     <script
       type="text/javascript"
       src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"
     ></script>
-    <script type="text/javascript">
-      (function () {
-        emailjs.init("user_kpaeid3BF5jMfYaszgT7D");
-      })();
-    </script>
-    <script type="text/javascript">
-      window.onload = function () {
-        document
-          .getElementById("contact-form")
-          .addEventListener("submit", function (event) {
-            event.preventDefault();
-            // generate a five digit ID number for the contact_number variable
-            this.contact_number.value = (Math.random() * 100000) | 0;
-            // these IDs from the previous steps
-            emailjs.sendForm("artur-it", "my_portfolio", this).then(
-              function () {
-                let formInputs = document.querySelectorAll(".input-field");
-                formInputs.forEach((form) => (form.value = ""));
-              },
-              function (error) {
-                console.log("FAILED...", error);
-              }
-            );
-          });
-      };
-    </script>
+    <script type="text/JavaScript" src="script.js"></script>
   </body>
 </html>
