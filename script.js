@@ -7,7 +7,7 @@ for (let i = 0; themeDots.length > i; i++) {
 	});
 }
 
-const setTheme = (mode) => {
+const setTheme = mode => {
 	if (mode == 'light') {
 		document.getElementById('theme-style').href = 'index.css';
 	} else if (mode == 'blue') {
@@ -73,8 +73,10 @@ window.onload = function () {
 			// these IDs from the previous steps
 			emailjs.sendForm('artur-it', 'my_portfolio', this).then(
 				function () {
-					let formInputs = document.querySelectorAll('.input-field');
-					formInputs.forEach((form) => (form.value = ''));
+					let formInputs = document.querySelectorAll(
+						'.input-field',
+					);
+					formInputs.forEach(form => (form.value = ''));
 					Toast.show('Email was sent', 'success');
 				},
 				function (error) {
@@ -84,3 +86,17 @@ window.onload = function () {
 			);
 		});
 };
+
+//Self-typing effect
+let i = 0;
+const nameTxt = "Hello, I'm Artur Avetisyan";
+const textWriter = () => {
+	if (i < nameTxt.length) {
+		const nameHeader = document.querySelector('#name-header');
+		nameHeader.innerHTML += nameTxt.charAt(i);
+		i++;
+		setTimeout(textWriter, 50);
+	}
+};
+
+textWriter();
